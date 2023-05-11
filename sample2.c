@@ -1,25 +1,24 @@
-//配列の要素のうち正の要素を別の配列にコピー
-#include<stdio.h>
+//2つの整数の大きい方の値を求める
 
-int main(void) {
+#include <stdio.h>
+//大きい方の値を返す
+int max2(int a, int b) //関数の定義、関数名max2、仮引数はinta,int b
+{
+	if (a > b) //aの方がbより大きい場合
+		return a; //返却値aを返す
+	else //bがaより大きい場合
+		return b; //bを返す
+}
 
-	int a[5];{}; //コピー元配列
-	int b[5];{}; //コピー先配列
+int main(void)
+{
+	int n1, n2; //変数n1,n2の設定
 
-	int i; //変数iの設定
-	//要素に値を読み込む
-	for (i = 0; i < 5; i++) { //変数iは0、iが5を超えるまで繰り返す、処理を実行するたびに1インクリメント
-		printf("a[%d] : ", i); //画面表示、scanfで入力した数値
-		scanf_s("%d", &a[i]);
-	}
+	puts("2つの整数を入力せよ"); //画面表示
+	printf("整数１："); scanf_s("%d", &n1);
+	printf("整数２："); scanf_s("%d", &n2);
 
-	int count = 0; //変数countの初期化、コピーした要素数
-	for (i = 0; i < 5; i++)
-		if (a[i] > 0)
-			b[count++] = a[i];
-
-	for (i = 0; i < count; i++)
-		printf("b[%d] = %d\n", i, b[i]);
+	printf("大きいほうの値は%dです。\n", max2(n1, n2)); //max2(n1,n2)は実引数
 
 	return 0;
 }
